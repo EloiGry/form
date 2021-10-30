@@ -11,13 +11,15 @@ class Form extends Component {
           emailIsValid: false,
           passwordIsValid: false,
           isSubmitted: false,
-          firstName: ""
+          firstName: "",
+          name : ""
         }
         this.handleEmailChange = this.handleEmailChange.bind(this)
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.handleRememberMeChange = this.handleRememberMeChange.bind(this)
         this.handleIsSubmitted = this.handleIsSubmitted.bind(this)
         this.handleFirstNameChange = this.handleFirstNameChange.bind(this)
+        this.handleNameChange = this.handleFirstNameChange.bind(this)
       }
         
       handleEmailChange(e) {
@@ -49,6 +51,11 @@ class Form extends Component {
         this.setState({firstName: str})
     }
 
+    handleNameChange(e) {
+      const str = e.target.value
+      this.setState({name: str})
+  }
+
 
     render() {
         const {emailIsValid, passwordIsValid, isSubmitted, email} = this.state
@@ -79,6 +86,7 @@ class Form extends Component {
                     
                     </form> 
                     <input onChange={this.handleFirstNameChange} type="text" placeholder="First Name"/>
+                    <input onChange={this.handleNameChange} type="text" placeholder="Name"/>
                 </div>
             }
         </>
